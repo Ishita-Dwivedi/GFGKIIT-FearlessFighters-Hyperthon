@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage</title>
+  <style>
+    /* Reset and Basic Styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, #84fab0, #8fd3f4, #6c63ff); /* Gradient background */
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Header Styling */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background: rgba(0, 0, 0, 0.6); /* Transparent black */
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+    }
+
+    .header h2 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+      letter-spacing: 1px;
+    }
+
+    /* Hamburger Menu Icon */
+    .menu-icon {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .menu-icon div {
+      width: 30px;
+      height: 4px;
+      background: white;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    /* Sidebar Menu */
+    .menu {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9); /* Slightly transparent black */
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.7);
+      transition: all 0.3s ease;
+      padding-top: 60px; /* Space for the header */
+      z-index: 1500; /* Ensure it appears above everything else */
+    }
+
+    .menu.active {
+      left: 0;
+    }
+
+    .menu a {
+      display: block;
+      padding: 15px 20px;
+      text-decoration: none;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 500;
+      border-left: 4px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .menu a:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-left: 4px solid #6c63ff;
+    }
+
+    /* Main Content */
+    .content {
+      margin-top: 70px; /* Space for fixed header */
+      padding: 20px;
+      text-align: center;
+      z-index: 1;
+    }
+
+    /* Boxes Section */
+    .box-section {
+      margin-top: 50px;
+      text-align: center;
+      padding: 20px;
+      position: relative; /* Ensure it doesn't interfere with the menu */
+      z-index: 1;
+    }
+
+    .box-section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .box-container {
+      display: flex;
+      gap: 20px;
+      transition: transform 0.4s ease-in-out;
+    }
+
+    .box {
+      min-width: 250px;
+      height: 150px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      padding: 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    /* Navigation Buttons */
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      z-index: 1; /* Ensure buttons are above content but below the menu */
+    }
+
+    .nav-button:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .nav-left {
+      left: 10px;
+    }
+
+    .nav-right {
+      right: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .box {
+        min-width: 200px;
+        height: 120px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="menu-icon" id="menuToggle">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <h2>Interactive Webpage</h2>
+  </header>
+
+  <!-- Sidebar Menu -->
+  <nav class="menu" id="menu">
+    <a href="Home.html">Home</a>
+    <a href="feed.html">Feed</a>
+    <a href="selfGoals.html">Self Goals</a>
+    <a href="account.html">Account</a>
+  </nav>
+
+   <!-- Boxes Section -->
+   <div class="box-section">
+    <h2>CHARITIES</h2>
+    <div class="carousel-container">
+      <button class="nav-button nav-left" id="navLeft">&#8249;</button>
+      <div class="box-container" id="boxContainer">
+        <!-- Box 1 -->
+        <div class="box" style="background-image: url('a.jpg');">
+          <div class="text-overlay">ANIMALS</div>
+        </div>
+        <!-- Box 2 -->
+        <div class="box" style="background-image: url('clim.jpg');">
+          <div class="text-overlay">CLIMATE</div>
+        </div>
+        <!-- Box 3 -->
+        <div class="box" style="background-image: url('dona.jpg');">
+          <div class="text-overlay">FOOD DRIVE</div>
+        </div>
+        <!-- Box 4 -->
+        <div class="box" style="background-image: url('c.jpg');">
+          <div class="text-overlay">CLOTHE DRIVE</div>
+        </div>
+        <!-- Box 5 -->
+        <div class="box" style="background-image: url('d.jpg');">
+          <div class="text-overlay">DONATIONS</div>
+        </div>
+      </div>
+      <button class="nav-button nav-right" id="navRight">&#8250;</button>
+    </div>
+  </div>
+  <div class="box-section">
+    <h2>ORGANIZATION</h2>
+    <div class="carousel-container">
+      <button class="nav-button nav-left" id="navLeft">&#8249;</button>
+      <div class="box-container" id="boxContainer">
+        <!-- Box 1 -->
+        <div class="box" style="background-image: url('who.jpg');">
+          <div class="text-overlay">WHO</div>
+        </div>
+        <!-- Box 2 -->
+        <div class="box" style="background-image: url('sm.jpg');">
+          <div class="text-overlay">GOONJ</div>
+        </div>
+        <!-- Box 3 -->
+        <div class="box" style="background-image: url('donorbox.jpg');">
+          <div class="text-overlay">DONOR BOX</div>
+        </div>
+        <!-- Box 4 -->
+        <div class="box" style="background-image: url('sm.jpg');">
+          <div class="text-overlay">OXFAM</div>
+        </div>
+        <!-- Box 5 -->
+        <div class="box" style="background-image: url('sm.jpg');">
+          <div class="text-overlay">SAVE THE CHILDREN</div>
+        </div>
+      </div>
+      <button class="nav-button nav-right" id="navRight">&#8250;</button>
+    </div>
+  </div>
+  <div class="box-section">
+    <h2>CHARITIES NEAR YOU</h2>
+    <div class="carousel-container">
+      <button class="nav-button nav-left" id="navLeft">&#8249;</button>
+      <div class="box-container" id="boxContainer">
+        <!-- Box 1 -->
+        <div class="box" style="background-image: url('i3.jpg');">
+          <div class="text-overlay">NSS</div>
+        </div>
+        <!-- Box 2 -->
+        <div class="box" style="background-image: url('nrf.png');">
+          <div class="text-overlay">NRF</div>
+        </div>
+        <!-- Box 3 -->
+        <div class="box" style="background-image: url('sm.jpg');">
+          <div class="text-overlay">NAC</div>
+        </div>
+        <!-- Box 4 -->
+        <div class="box" style="background-image: url('sm.jpg');">
+          <div class="text-overlay">UDHESHYA</div>
+        </div>
+        <!-- Box 5 -->
+        <div class="box" style="background-image: url('sm.jpg');">
+          <div class="text-overlay">JAZBA</div>
+        </div>
+      </div>
+      <button class="nav-button nav-right" id="navRight">&#8250;</button>
+    </div>
+  </div>
+
+  <script>
+    // Toggle Menu
+    const menuToggle = document.getElementById('menuToggle');
+    const menu = document.getElementById('menu');
+
+    menuToggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+
+    // Carousel Navigation
+    const boxContainer = document.getElementById('boxContainer');
+    const navLeft = document.getElementById('navLeft');
+    const navRight = document.getElementById('navRight');
+    let currentPosition = 0;
+
+    navLeft.addEventListener('click', () => {
+      const boxWidth = document.querySelector('.box').offsetWidth + 20; // Box width + gap
+      currentPosition = Math.min(currentPosition + boxWidth, 0); // Prevent scrolling beyond first box
+      boxContainer.style.transform = `translateX(${currentPosition}px)`;
+    });
+
+    navRight.addEventListener('click', () => {
+      const boxWidth = document.querySelector('.box').offsetWidth + 20; // Box width + gap
+      const maxScroll = -(boxContainer.scrollWidth - boxContainer.offsetWidth); // Prevent scrolling beyond last box
+      currentPosition = Math.max(currentPosition - boxWidth, maxScroll);
+      boxContainer.style.transform = `translateX(${currentPosition}px)`;
+    });
+  </script>
+</body>
+</html>

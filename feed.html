@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feed Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background:  linear-gradient(120deg, #84fab0, #8fd3f4, #6c63ff);
+      color: #333;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 32px;
+      color: #444;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .card h2 {
+      margin-bottom: 10px;
+      font-size: 24px;
+      color: #222;
+    }
+
+    .card p {
+      font-size: 16px;
+      margin-bottom: 15px;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: flex-start;
+      gap: 10px;
+    }
+
+    .actions button {
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .actions button.like-btn {
+      background-color: #6c63ff;
+      color: #fff;
+    }
+
+    .actions button.share-btn {
+      background-color: #fda085;
+      color: #fff;
+    }
+
+    .actions button:hover {
+      transform: translateY(-3px);
+    }
+
+    .actions button.like-btn:hover {
+      background-color: #574bda;
+    }
+
+    .actions button.share-btn:hover {
+      background-color: #f77f50;
+    }
+  </style>
+</head>
+<body>
+  <h1>Organizations Making a Difference</h1>
+  <div class="container">
+    <!-- Organization 1 -->
+    <div class="card">
+      <h2>World Health Organization (WHO)</h2>
+      <p>The WHO works to promote health, keep the world safe, and serve the vulnerable. They focus on global health challenges like pandemics, immunization, and emergency response.</p>
+      <div class="actions">
+        <button class="like-btn" onclick="like()">Like</button>
+        <button class="share-btn" onclick="share()">Share</button>
+      </div>
+    </div>
+
+    <!-- Organization 2 -->
+    <div class="card">
+      <h2>DonorBox</h2>
+      <p>DonorBox is a fundraising platform helping nonprofits and charities raise money with online donations. They specialize in crowdfunding for impactful causes.</p>
+      <div class="actions">
+        <button class="like-btn" onclick="like()">Like</button>
+        <button class="share-btn" onclick="share()">Share</button>
+      </div>
+    </div>
+
+    <!-- Organization 3 -->
+    <div class="card">
+      <h2>Goonj</h2>
+      <p>Goonj focuses on channeling urban surplus to meet the basic needs of rural communities. Their initiatives aim to empower villages and foster sustainable development.</p>
+      <div class="actions">
+        <button class="like-btn" onclick="like()">Like</button>
+        <button class="share-btn" onclick="share()">Share</button>
+      </div>
+    </div>
+
+    <!-- Organization 4 -->
+    <div class="card">
+      <h2>Oxfam</h2>
+      <p>Oxfam is dedicated to ending poverty and inequality around the world. They work on empowering marginalized communities and addressing climate change.</p>
+      <div class="actions">
+        <button class="like-btn" onclick="like()">Like</button>
+        <button class="share-btn" onclick="share()">Share</button>
+      </div>
+    </div>
+
+    <!-- Organization 5 -->
+    <div class="card">
+      <h2>Journey to Justice</h2>
+      <p>This organization inspires people to take action for social justice through education, storytelling, and art-based initiatives.</p>
+      <div class="actions">
+        <button class="like-btn" onclick="like()">Like</button>
+        <button class="share-btn" onclick="share()">Share</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function like() {
+      alert("You liked this post!");
+    }
+
+    function share() {
+      alert("Share this post on social media!");
+    }
+  </script>
+</body>
+</html>

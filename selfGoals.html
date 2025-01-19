@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Self Goals</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(120deg, #84fab0, #8fd3f4, #6c63ff);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 36px;
+      color: #fff;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .container {
+      background: #fff;
+      border-radius: 15px;
+      padding: 20px;
+      width: 100%;
+      max-width: 600px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .todo-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .todo-header input {
+      width: 70%;
+      padding: 10px;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    .todo-header button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 10px;
+      background-color: #fda085;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .todo-header button:hover {
+      background-color: #f6d365;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f9f9f9;
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    li.completed {
+      text-decoration: line-through;
+      color: #999;
+    }
+
+    .delete-btn {
+      background-color: #ff6b6b;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+
+    .delete-btn:hover {
+      background-color: #ff4d4d;
+    }
+  </style>
+</head>
+<body>
+  <h1>Be A Better Person</h1>
+  <div class="container">
+    <div class="todo-header">
+      <input type="text" id="todo-input" placeholder="Add your goal here..." />
+      <button onclick="addGoal()">Add</button>
+    </div>
+    <ul id="todo-list"></ul>
+  </div>
+
+  <script>
+    // Function to add a goal to the list
+    function addGoal() {
+      const input = document.getElementById("todo-input");
+      const todoList = document.getElementById("todo-list");
+
+      if (input.value.trim() === "") {
+        alert("Please enter a goal!");
+        return;
+      }
+
+      // Create a new list item
+      const listItem = document.createElement("li");
+      listItem.innerHTML = `
+        <span>${input.value}</span>
+        <button class="delete-btn" onclick="deleteGoal(this)">X</button>
+      `;
+
+      // Add a click event to toggle completion
+      listItem.addEventListener("click", function (event) {
+        if (event.target.tagName !== "BUTTON") {
+          listItem.classList.toggle("completed");
+        }
+      });
+
+      // Append the new item to the list
+      todoList.appendChild(listItem);
+
+      // Clear the input field
+      input.value = "";
+    }
+
+    // Function to delete a goal
+    function deleteGoal(button) {
+      const listItem = button.parentElement;
+      listItem.remove();
+    }
+  </script>
+</body>
+</html>
